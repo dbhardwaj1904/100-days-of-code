@@ -34,13 +34,13 @@ while game_on:
 
     # Detect wall hit
     if snake.head.xcor() > 300 or snake.head.xcor() < -300 or snake.head.ycor() > 300 or snake.head.ycor() < -300:
-        game_on = False
-        score.game_over()
+        score.reset_game()
+        snake.reset_snake()
 
     # Hit itself
     for i in snake.snake[1:]:
         if snake.head.distance(i) < 10:
-            game_on = False
-            score.game_over()
+            score.reset_game()
+            snake.reset_snake()
 
 screen.exitonclick()

@@ -35,6 +35,13 @@ class Snake:
     def extend(self):
         self.add_mini_snake(self.snake[-1].position())
 
+    def reset_snake(self):
+        for mini_snake in self.snake:
+            mini_snake.goto(1000, 1000)
+        self.snake.clear()
+        self.create_snake()
+        self.head = self.snake[0]
+
     def up(self):
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
