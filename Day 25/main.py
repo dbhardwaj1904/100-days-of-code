@@ -28,10 +28,7 @@ while states_guessed < total_states:
     user_input = screen.textinput(title=f"{states_guessed}/50 are States Correct",
                                   prompt="Enter state name of US?").title()
     if user_input == "Exit" or user_input == "exit":
-        missing_states = []
-        for state in all_states:
-            if state not in states_guessed_array:
-                missing_states.append(state)
+        missing_states = [state for state in all_states if state not in states_guessed_array]
         missed_states_file = pandas.DataFrame(missing_states)
         missed_states_file.to_csv("Misses_States.csv")
         break
